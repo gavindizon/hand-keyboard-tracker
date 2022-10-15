@@ -1,0 +1,34 @@
+    keys = { 'A': []}
+
+    MIN = 1000000
+    SCALE = 1
+
+    #TODO: Detect Key Coordinates Placements
+    while utils.not_enough_dict(keys, MIN) == True:
+        success, img = cap.read()
+        h, w, c = img.shape
+        img = utils.zoom(img, SCALE)
+
+        # grayimg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        # (thresh, grayimg) = cv2.threshold(img, 78, 230, cv2.THRESH_BINARY)
+        # grayimg = utils.canny(grayimg)
+
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)        
+        (thresh, img) = cv2.threshold(img, 78, 230, cv2.THRESH_BINARY)
+        #img = utils.canny(img)
+        #img = utils.dilate(img)
+
+    #BCDEFGHIJKLMNOPQRSTUVWXYZ
+        boxes = (pytesseract.image_to_boxes(img, config='-c tessedit_char_whitelist=A --psm 0 min_characters_to_try=5'))
+        for b in boxes.splitlines():
+            b = b.split(' ')
+            x1,y1,x2,y2 = map(int, b[1:5])
+            print(b[0], x1 / SCALE, y1 / SCALE, x2 /SCALE,  y2 / SCALE)
+            if b[0] in keys:
+                if x1 != 0 and y1 != 0 and x2 != 0 and y2 != 0 and len(keys[b[0]]) < MIN:
+                    keys[b[0]].append(utils.midpoint((x1, int(h) + y1), (x2, int(h) + y2)))
+                    img = cv2.rectangle(img, (int(x1 /SCALE) , int(y1 /SCALE)), (int(x2 / SCALE), int(y2/ SCALE)), (0, 255, 0), 1)
+
+
+        cv2.imshow("Hand Camera", img)
+        cv2.waitKey(1)

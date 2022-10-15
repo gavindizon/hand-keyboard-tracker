@@ -2,6 +2,7 @@ import cv2
 import mediapipe as mp
 from google.protobuf.json_format import MessageToDict
 
+
 class hand_detector():
     def __init__(self, mode = False, maxHands = 2, modelComplexity = 1, detectionCon =0.5, trackCon =0.5, cx = 0, cy = 0):
         self.mode = mode
@@ -11,6 +12,13 @@ class hand_detector():
         self.trackCon = trackCon
         self.cx = cx
         self.cy = cy
+        self.finger_dictionary = {
+            '4': "thumb",
+            '8': 'index',
+            '12': 'middle',
+            '16': 'ring',
+            '20': 'pinky'
+        }
 
         self.mpHands = mp.solutions.hands
         self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.modelComplexity,  self.detectionCon, self.trackCon)
@@ -20,8 +28,6 @@ class hand_detector():
     def find_hands(self, img, draw = True):
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.hands.process(imgRGB)
-       # print("TESTING: ({}, {})".format(self.cx, self.cy))
-
         if self.results.multi_hand_landmarks:
             for handLms in self.results.multi_hand_landmarks:
                 h, w, c = img.shape
@@ -52,8 +58,8 @@ class hand_detector():
             for id, lm in enumerate(my_hand.landmark):
                 h, w, c = img.shape
                 cx, cy = int(lm.x * w), int(lm.y * h)
-                lm_list.append([id, cx, cy, label])
-                if draw and id % 4 == 0:
+                if draw and id % 4 == 0 and id != 0:
+                    lm_list.append([(cx, cy), self.finger_dictionary[str(id)], label])
                     cv2.circle(img, (cx, cy), 15, (255, 0, 255), cv2.FILLED)
         
         return lm_list
