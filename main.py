@@ -40,6 +40,8 @@ def main():
 
 
     cap = cv2.VideoCapture(2)
+    cap.set(3, 1920)
+    cap.set(4, 1080)
 
     # Detect Hand Movement
     while True:
