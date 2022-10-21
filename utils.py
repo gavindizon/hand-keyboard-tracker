@@ -16,15 +16,25 @@ def midpoint(p1, p2):
 
 def closest(pressed_key, landmarks):
     np_landmarks = np.array(landmarks, dtype=object)[:,0]
-
-
-    print(np_landmarks, pressed_key)
+    #print(np_landmarks, pressed_key)
     distance = list(map(lambda z : abs(math.sqrt((z[0] - pressed_key[0])**2 + (z[0] - pressed_key[0])**2)), np_landmarks))
-
     min_value = min(distance)
     idx = distance.index(min_value)
 
     return landmarks[idx]
+
+def generate_object(landmarks, keys, char):
+    hand_finger_used = closest(keys[char], landmarks)
+    obj = {
+        "hand": hand_finger_used[2],
+        "finger": hand_finger_used[1],
+        "activeLandmarkLoc": hand_finger_used[0],
+        "landmarks": landmarks,
+        "keyPressed": char,
+    }
+
+    return obj
+
 
 
 
