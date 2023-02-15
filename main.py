@@ -19,10 +19,15 @@ def main():
     KEY_SIZE = 60
     SPACING = 10
 
+    # LAYOUTS
+    SALVO = ["1234567890-","DHRLWBKYEU", "STNGPMIAO;'", "ZXCVQFJ,.?"]
+    TYPHE_H = ["1234567890-", "", ";'", ",.?"]
+    TYPHE_LP = ["1234567890-", "", ";'", ",.?"]
+    
     FILENAME_PREF = sys.argv[1] if len(sys.argv) > 0 else "DEFAULT"
 
     # initialize keyboard coordinates
-    keys = keyboard.create_keyboard(starting_coordinate=START_COORDINATE, size=KEY_SIZE, spacing=SPACING)
+    keys = keyboard.create_keyboard(mapping=SALVO, starting_coordinate=START_COORDINATE, size=KEY_SIZE, spacing=SPACING)
     detector = htm.hand_detector()
     RESULT = []
 
@@ -43,7 +48,6 @@ def main():
             except AttributeError:
                 if(key == Key.space):
                     RESULT.append(utils.generate_object(lm_list + lm_list2, keys, " "))
-                    print("<Space>")
             except KeyError:
                 print('special key {0} pressed that is not included'.format(key))
 
