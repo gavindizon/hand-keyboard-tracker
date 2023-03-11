@@ -1,0 +1,155 @@
+[
+    {
+        "hand": "Left",
+        "finger": "ring",
+        "activeLandmarkLoc": [
+            295,
+            355
+        ],
+        "landmarks": [
+            [
+                [
+                    31,
+                    548
+                ],
+                "thumb",
+                "Left"
+            ],
+            [
+                [
+                    16,
+                    335
+                ],
+                "index",
+                "Left"
+            ],
+            [
+                [
+                    134,
+                    271
+                ],
+                "middle",
+                "Left"
+            ],
+            [
+                [
+                    295,
+                    355
+                ],
+                "ring",
+                "Left"
+            ],
+            [
+                [
+                    518,
+                    474
+                ],
+                "pinky",
+                "Left"
+            ]
+        ],
+        "keyPressed": "Q"
+    },
+    {
+        "hand": "Left",
+        "finger": "ring",
+        "activeLandmarkLoc": [
+            298,
+            360
+        ],
+        "landmarks": [
+            [
+                [
+                    40,
+                    550
+                ],
+                "thumb",
+                "Left"
+            ],
+            [
+                [
+                    14,
+                    336
+                ],
+                "index",
+                "Left"
+            ],
+            [
+                [
+                    131,
+                    281
+                ],
+                "middle",
+                "Left"
+            ],
+            [
+                [
+                    298,
+                    360
+                ],
+                "ring",
+                "Left"
+            ],
+            [
+                [
+                    529,
+                    478
+                ],
+                "pinky",
+                "Left"
+            ]
+        ],
+        "keyPressed": "Q"
+    },
+    {
+        "hand": "Left",
+        "finger": "ring",
+        "activeLandmarkLoc": [
+            290,
+            399
+        ],
+        "landmarks": [
+            [
+                [
+                    34,
+                    554
+                ],
+                "thumb",
+                "Left"
+            ],
+            [
+                [
+                    0,
+                    351
+                ],
+                "index",
+                "Left"
+            ],
+            [
+                [
+                    126,
+                    295
+                ],
+                "middle",
+                "Left"
+            ],
+            [
+                [
+                    290,
+                    399
+                ],
+                "ring",
+                "Left"
+            ],
+            [
+                [
+                    511,
+                    498
+                ],
+                "pinky",
+                "Left"
+            ]
+        ],
+        "keyPressed": "Q"
+    }
+]
