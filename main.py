@@ -22,15 +22,19 @@ def main():
 
     # LAYOUTS
     SALVO = ["1234567890-","DHRLWBKYEU", "STNGPMIAO;'", "ZXCVQFJ,.?"]
-    TYPHE_H = ["1234567890-", "", ";'", ",.?"]
+    TYPHE_H = ["1234567890-", "QWEDRUYKPJ", "ZASTGNIOL;'", "XVFCBMH,.?"]
     TYPHE_LP = ["1234567890-", "", ";'", ",.?"]
 
     QWERTY_TO_SALVO =  {}
+    QWERTY_TO_TYPHE_H = {}
 
     # get salvo mapping from salvo json file
     with open('salvo.json') as json_file:
         QWERTY_TO_SALVO = json.load(json_file)
 
+   # get salvo mapping from salvo json file
+    with open('heuristic.json') as json_file:
+        QWERTY_TO_TYPHE_H = json.load(json_file)
 
     FILENAME_PREF = sys.argv[1] if len(sys.argv) > 0 else "DEFAULT"
     LAYOUT = "QWERTY"
@@ -39,13 +43,21 @@ def main():
         LAYOUT = str(sys.argv[2]).upper()
 
     # initialize keyboard coordinates
-    keys = keyboard.create_keyboard(mapping=SALVO, starting_coordinate=START_COORDINATE, size=KEY_SIZE, spacing=SPACING)
+    # keys = keyboard.create_keyboard(mapping=SALVO, starting_coordinate=START_COORDINATE, size=KEY_SIZE, spacing=SPACING)
+
+    switch_keys = {
+        "SALVO": keyboard.create_keyboard(mapping=SALVO, starting_coordinate=START_COORDINATE, size=KEY_SIZE, spacing=SPACING),
+        "TYPHE_H": keyboard.create_keyboard(mapping=TYPHE_H, starting_coordinate=START_COORDINATE, size=KEY_SIZE, spacing=SPACING)
+    }
+
+    keys = switch_keys[LAYOUT]
     detector = htm.hand_detector()
     RESULT = []
 
     def map_on_layout(raw_letter, layout = LAYOUT):
         switcher = {
             "SALVO": QWERTY_TO_SALVO[raw_letter],
+            "TYPHE_H": QWERTY_TO_TYPHE_H[raw_letter],
             "QWERTY": raw_letter
         }
         return switcher.get(layout, raw_letter)
