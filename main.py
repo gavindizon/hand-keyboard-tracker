@@ -23,10 +23,11 @@ def main():
     # LAYOUTS
     SALVO = ["1234567890-","DHRLWBKYEU", "STNGPMIAO;'", "ZXCVQFJ,.?"]
     TYPHE_H = ["1234567890-", "QWEDRUYKPJ", "ZASTGNIOL;'", "XVFCBMH,.?"]
-    TYPHE_LP = ["1234567890-", "", ";'", ",.?"]
+    TYPHE_A = ["1234567890-", "WRETJQUYOP", "AISGDHKLN;'", "FXCVZBM,.?"]
 
     QWERTY_TO_SALVO =  {}
     QWERTY_TO_TYPHE_H = {}
+    QWERTY_TO_TYPHE_A = {}
 
     # get salvo mapping from salvo json file
     with open('salvo.json') as json_file:
@@ -35,6 +36,10 @@ def main():
    # get salvo mapping from salvo json file
     with open('heuristic.json') as json_file:
         QWERTY_TO_TYPHE_H = json.load(json_file)
+
+
+    with open('optimizer1.json') as json_file:
+        QWERTY_TO_TYPHE_A = json.load(json_file)
 
     FILENAME_PREF = sys.argv[1] if len(sys.argv) > 0 else "DEFAULT"
     LAYOUT = "QWERTY"
@@ -47,7 +52,8 @@ def main():
 
     switch_keys = {
         "SALVO": keyboard.create_keyboard(mapping=SALVO, starting_coordinate=START_COORDINATE, size=KEY_SIZE, spacing=SPACING),
-        "TYPHE_H": keyboard.create_keyboard(mapping=TYPHE_H, starting_coordinate=START_COORDINATE, size=KEY_SIZE, spacing=SPACING)
+        "TYPHE_H": keyboard.create_keyboard(mapping=TYPHE_H, starting_coordinate=START_COORDINATE, size=KEY_SIZE, spacing=SPACING),
+        "TYPHE_A": keyboard.create_keyboard(mapping=TYPHE_A, starting_coordinate=START_COORDINATE, size=KEY_SIZE, spacing=SPACING)
     }
 
     keys = switch_keys[LAYOUT]
@@ -58,6 +64,7 @@ def main():
         switcher = {
             "SALVO": QWERTY_TO_SALVO[raw_letter],
             "TYPHE_H": QWERTY_TO_TYPHE_H[raw_letter],
+            "TYPHE_A": QWERTY_TO_TYPHE_A[raw_letter],
             "QWERTY": raw_letter
         }
         return switcher.get(layout, raw_letter)
