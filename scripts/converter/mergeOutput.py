@@ -2,7 +2,7 @@ import os
 import json
 import pandas as pd
 
-blocked_substrings = ["lance", "francis", "calimbas", "merged"]
+blocked_substrings = ["merged"]
 
 
 def substring_check(s, subs): return not any(sub in s.lower() for sub in subs)

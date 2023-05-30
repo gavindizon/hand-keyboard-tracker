@@ -20,7 +20,7 @@ SALVO = {}
 with open('salvo.json') as json_file:
     SALVO = json.load(json_file)
 
-with open('./input/input3.json') as json_file:
+with open('./input/input4.json') as json_file:
     items = json.load(json_file)
 
 salvo_mappings = {'1': (270, 310), '2': (340, 310), '3': (410, 310), '4': (480, 310), '5': (550, 310), '6': (620, 310), '7': (690, 310), '8': (760, 310), '9': (830, 310), '0': (900, 310), '-': (970, 310), 'D': (310, 380), 'H': (380,
@@ -29,7 +29,6 @@ salvo_mappings = {'1': (270, 310), '2': (340, 310), '3': (410, 310), '4': (480, 
 
 new_item = []
  
-
 for item in items:
     temp = item.copy()
 
@@ -38,8 +37,9 @@ for item in items:
 
     temp['hand'] = temp['landmarks'][indx][2]
     temp['finger'] = temp['landmarks'][indx][1]
+    temp['activeLandmarkLoc'] = temp['landmarks'][indx][0]
+    temp['keyPressed'] = keyPressed
     new_item.append(temp)
-
 
 output_dir = os.path.join("output", "{}-{}.json".format("converted", datetime.now().strftime("%m-%d-%Y_%H-%M-%S")))
 json_object = json.dumps(new_item, indent=4)
