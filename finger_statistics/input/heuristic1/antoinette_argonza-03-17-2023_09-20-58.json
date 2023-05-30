@@ -1,0 +1,206 @@
+[
+    {
+        "hand": "Left",
+        "finger": "index",
+        "activeLandmarkLoc": [
+            526,
+            446
+        ],
+        "landmarks": [
+            [
+                [
+                    565,
+                    539
+                ],
+                "thumb",
+                "Left"
+            ],
+            [
+                [
+                    526,
+                    446
+                ],
+                "index",
+                "Left"
+            ],
+            [
+                [
+                    354,
+                    520
+                ],
+                "middle",
+                "Left"
+            ],
+            [
+                [
+                    277,
+                    629
+                ],
+                "ring",
+                "Left"
+            ],
+            [
+                [
+                    283,
+                    781
+                ],
+                "pinky",
+                "Left"
+            ]
+        ],
+        "keyPressed": "T"
+    },
+    {
+        "hand": "Left",
+        "finger": "index",
+        "activeLandmarkLoc": [
+            525,
+            456
+        ],
+        "landmarks": [
+            [
+                [
+                    564,
+                    589
+                ],
+                "thumb",
+                "Left"
+            ],
+            [
+                [
+                    525,
+                    456
+                ],
+                "index",
+                "Left"
+            ],
+            [
+                [
+                    349,
+                    531
+                ],
+                "middle",
+                "Left"
+            ],
+            [
+                [
+                    264,
+                    650
+                ],
+                "ring",
+                "Left"
+            ],
+            [
+                [
+                    275,
+                    816
+                ],
+                "pinky",
+                "Left"
+            ]
+        ],
+        "keyPressed": "T"
+    },
+    {
+        "hand": "Left",
+        "finger": "index",
+        "activeLandmarkLoc": [
+            535,
+            442
+        ],
+        "landmarks": [
+            [
+                [
+                    577,
+                    582
+                ],
+                "thumb",
+                "Left"
+            ],
+            [
+                [
+                    535,
+                    442
+                ],
+                "index",
+                "Left"
+            ],
+            [
+                [
+                    342,
+                    527
+                ],
+                "middle",
+                "Left"
+            ],
+            [
+                [
+                    258,
+                    650
+                ],
+                "ring",
+                "Left"
+            ],
+            [
+                [
+                    265,
+                    846
+                ],
+                "pinky",
+                "Left"
+            ]
+        ],
+        "keyPressed": "T"
+    },
+    {
+        "hand": "Left",
+        "finger": "index",
+        "activeLandmarkLoc": [
+            532,
+            439
+        ],
+        "landmarks": [
+            [
+                [
+                    558,
+                    574
+                ],
+                "thumb",
+                "Left"
+            ],
+            [
+                [
+                    532,
+                    439
+                ],
+                "index",
+                "Left"
+            ],
+            [
+                [
+                    327,
+                    531
+                ],
+                "middle",
+                "Left"
+            ],
+            [
+                [
+                    246,
+                    637
+                ],
+                "ring",
+                "Left"
+            ],
+            [
+                [
+                    262,
+                    825
+                ],
+                "pinky",
+                "Left"
+            ]
+        ],
+        "keyPressed": "T"
+    }
+]
